@@ -1,16 +1,18 @@
 // required packages
 const express = require('express')
-
+const ejs = require('ejs')
 // set up express app
 const app = express()
 const PORT = 3333
+// tell express to use ejs to render html from templates
+app.set('view engine', ejs)
 
 // middlewres (code  that runs every time a request happens)
 // app.use()
 // hey express --my assets folder is called Public
 app.use(express.static('Public'))
 
-// res.send --tries to figure out what to send (not specific)
+// res.send --triee]s to figure out what to send (not specific)
 // res.json -- send json data
 // res.cookie -- send a browseer cookie
 // res.render -- render an html template
@@ -22,14 +24,16 @@ app.get('/', (req, res) => {
     // we have to tell express what directory to get the file from
     // the path will change based on the 'environment
     // dunder dirname
-    res.sendFile(__dirname + '/view/index.html')
+    // res.render('template file', {dataobject})
+    res.render('index.ejs', {name: 'Sterling Archer', age: 35})// assumes we are in the 'views'folder
 })
     
 app.get('/about', (req, res) => {
-    res.sendFile(__dirname + '/view/about.html')
+    res.render('about.ejs')
 })
 app.get('/blog', (req, res) => {
-    res.sendFile(__dirname + '/view/blog.html')
+    // res.sendFile(__dirname + '/view/blog.html')
+    res.render('blog.ejs')
 })
 
 // listen on a port
