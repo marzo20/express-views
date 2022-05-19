@@ -29,7 +29,8 @@ app.get('/', (req, res) => {
 })
     
 app.get('/about', (req, res) => {
-    res.render('about.ejs')
+    const myFavorites = ['pizza', 'tacos', 'kbbq', 'sushi']
+    res.render('about.ejs', {myFavorites})
 })
 app.get('/blog', (req, res) => {
     // res.sendFile(__dirname + '/view/blog.html')
