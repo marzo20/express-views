@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My awesome Site</title>
+        <link rel="stylesheet" href="./css/styles.css"/>
+    </head>
+
+    <body>
+        <%- include('./partials/header.ejs') %>
+
+        <!-- we need a body scriptlet injection tag -->
+        <%- body %>
+
+        <script src="./js/script.js"></script>
+    </body>
+</html>
